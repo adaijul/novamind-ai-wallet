@@ -4,127 +4,202 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NovaMind AI Wallet</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-black text-white overflow-x-hidden">
 
-  <!-- HERO -->
-  <section class="min-h-screen flex items-center justify-center px-6">
-    <div class="max-w-6xl grid md:grid-cols-2 gap-12 items-center">
-      
-      <div>
-        <h1 class="text-5xl md:text-7xl font-bold leading-tight">
-          The Future of
-          <span class="text-cyan-400">AI Wallet</span>
-        </h1>
+<!-- HERO -->
+<section class="min-h-screen flex items-center justify-center px-6">
 
-        <p class="mt-6 text-gray-300 text-lg leading-relaxed">
-          NovaMind combines artificial intelligence and Web3 security
-          to create a smarter crypto wallet experience for everyone.
-        </p>
+  <div class="max-w-6xl grid md:grid-cols-2 gap-12 items-center">
 
-        <div class="mt-8 flex gap-4">
-          <button class="bg-cyan-400 text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition">
-            Launch App
-          </button>
+    <div>
 
-          <button class="border border-cyan-400 px-6 py-3 rounded-xl hover:bg-cyan-400 hover:text-black transition">
-            View Demo
-          </button>
-        </div>
-      </div>
-
-      <div class="relative">
-        <div class="absolute inset-0 bg-cyan-500 blur-3xl opacity-20"></div>
-
-        <div class="relative bg-zinc-900 border border-cyan-500/30 rounded-3xl p-6 shadow-2xl">
-          
-          <div class="flex justify-between items-center">
-            <h2 class="text-xl font-bold">AI Wallet Assistant</h2>
-            <span class="bg-green-500 px-3 py-1 rounded-full text-sm">
-              Active
-            </span>
-          </div>
-
-          <div class="mt-6 space-y-4">
-            
-            <div class="bg-zinc-800 p-4 rounded-xl">
-              <p class="text-gray-400 text-sm">Portfolio Balance</p>
-              <h3 class="text-3xl font-bold">$12,480.45</h3>
-            </div>
-
-            <div class="bg-zinc-800 p-4 rounded-xl">
-              <p class="text-gray-400 text-sm">AI Suggestion</p>
-              <p class="mt-2 text-cyan-300">
-                Move idle USDT to staking pool with 12% APY.
-              </p>
-            </div>
-
-            <div class="bg-zinc-800 p-4 rounded-xl">
-              <p class="text-gray-400 text-sm">Security Alert</p>
-              <p class="mt-2 text-red-400">
-                Suspicious contract interaction blocked automatically.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="py-24 px-6 bg-zinc-950">
-    <div class="max-w-6xl mx-auto text-center">
-      
-      <h2 class="text-4xl font-bold">
-        Why Choose NovaMind?
-      </h2>
-
-      <p class="text-gray-400 mt-4">
-        AI-powered Web3 experience with next-level security.
+      <p class="text-cyan-400 mb-4">
+        novamindwallet.xyz
       </p>
 
-      <div class="grid md:grid-cols-3 gap-8 mt-16">
-        
-        <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800">
-          <h3 class="text-2xl font-bold text-cyan-400">
-            AI Protection
-          </h3>
-          <p class="mt-4 text-gray-400">
-            Detect phishing and dangerous smart contracts automatically.
-          </p>
+      <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+        NovaMind
+        <span class="text-cyan-400">AI Wallet</span>
+      </h1>
+
+      <p class="mt-6 text-gray-300 text-lg leading-relaxed">
+        Smart AI-powered Web3 wallet with multi-chain support,
+        intelligent security, and portfolio insights.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+
+        <button onclick="connectWallet()"
+          class="bg-cyan-400 text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition">
+          Connect Wallet
+        </button>
+
+        <button
+          class="border border-cyan-400 px-6 py-3 rounded-xl hover:bg-cyan-400 hover:text-black transition">
+          Send
+        </button>
+
+        <button
+          class="border border-cyan-400 px-6 py-3 rounded-xl hover:bg-cyan-400 hover:text-black transition">
+          Receive
+        </button>
+
+        <button
+          class="border border-cyan-400 px-6 py-3 rounded-xl hover:bg-cyan-400 hover:text-black transition">
+          Swap
+        </button>
+
+      </div>
+
+      <div class="mt-6 bg-zinc-900 border border-cyan-500/20 rounded-2xl p-5">
+
+        <div class="flex justify-between">
+          <span class="text-gray-400">Wallet</span>
+
+          <span id="walletAddress" class="text-cyan-300">
+            Not Connected
+          </span>
         </div>
 
-        <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800">
-          <h3 class="text-2xl font-bold text-cyan-400">
-            Multi-chain
-          </h3>
-          <p class="mt-4 text-gray-400">
-            Ethereum, Solana, BSC, Base, and more in one wallet.
-          </p>
-        </div>
+        <div class="mt-5">
 
-        <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800">
-          <h3 class="text-2xl font-bold text-cyan-400">
-            Smart AI Assistant
+          <h3 class="text-lg font-bold mb-3">
+            Assets
           </h3>
-          <p class="mt-4 text-gray-400">
-            Get staking, trading, and portfolio recommendations instantly.
-          </p>
+
+          <div class="space-y-3">
+
+            <div class="flex justify-between bg-zinc-800 p-3 rounded-xl">
+              <span>ETH</span>
+              <span>2.48 ETH</span>
+            </div>
+
+            <div class="flex justify-between bg-zinc-800 p-3 rounded-xl">
+              <span>USDT</span>
+              <span>12,400 USDT</span>
+            </div>
+
+            <div class="flex justify-between bg-zinc-800 p-3 rounded-xl">
+              <span>IMX</span>
+              <span>5,000 IMX</span>
+            </div>
+
+          </div>
+
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="py-10 text-center border-t border-zinc-800">
-    <p class="text-gray-500">
-      Built for imToken AI Co-Creation Event 2026 🚀
-    </p>
-  </footer>
+    </div>
+
+    <div class="relative">
+
+      <div class="absolute inset-0 bg-cyan-500 blur-3xl opacity-20"></div>
+
+      <div class="relative bg-zinc-900 border border-cyan-500/30 rounded-3xl p-6 shadow-2xl">
+
+        <div class="flex justify-between items-center">
+
+          <h2 class="text-xl font-bold">
+            AI Wallet Assistant
+          </h2>
+
+          <span class="bg-green-500 px-3 py-1 rounded-full text-sm">
+            Active
+          </span>
+
+        </div>
+
+        <div class="mt-6 space-y-4">
+
+          <div class="bg-zinc-800 p-4 rounded-xl">
+
+            <p class="text-gray-400 text-sm">
+              Portfolio Balance
+            </p>
+
+            <h3 class="text-3xl font-bold">
+              $12,480.45
+            </h3>
+
+          </div>
+
+          <div class="bg-zinc-800 p-4 rounded-xl">
+
+            <p class="text-gray-400 text-sm">
+              AI Suggestion
+            </p>
+
+            <p class="mt-2 text-cyan-300">
+              Move idle USDT to staking pool with 12% APY.
+            </p>
+
+          </div>
+
+          <div class="bg-zinc-800 p-4 rounded-xl">
+
+            <p class="text-gray-400 text-sm">
+              Security Alert
+            </p>
+
+            <p class="mt-2 text-red-400">
+              Suspicious contract blocked automatically.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center border-t border-zinc-800">
+
+  <p class="text-gray-500">
+    Built for the imToken AI Co-Creation Event
+  </p>
+
+</footer>
+
+<script>
+async function connectWallet() {
+
+  if (window.ethereum) {
+
+    try {
+
+      const accounts =
+      await window.ethereum.request({
+        method: 'eth_requestAccounts'
+      });
+
+      document.getElementById('walletAddress').innerText =
+      accounts[0].slice(0,6) + '...' + accounts[0].slice(-4);
+
+    } catch (err) {
+
+      alert('Connection rejected');
+
+    }
+
+  } else {
+
+    alert('MetaMask not detected');
+
+  }
+
+}
+</script>
 
 </body>
 </html>
